@@ -213,6 +213,7 @@ async function run() {
             res.send(result);
         })
 
+        // user update 
         app.put("/user/:email", async (req, res) => {
             const email = req.params.email;
             const user = req.body;
@@ -226,6 +227,7 @@ async function run() {
             res.send({ result, token })
         })
 
+        // user update
         app.put("/user/admin/:email", verifyJWT, verifyAdmin, async (req, res) => {
             const email = req.params.email;
             const filter = { email: email };
