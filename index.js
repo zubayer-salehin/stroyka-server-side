@@ -238,6 +238,7 @@ async function run() {
             return res.send(result)
         })
 
+        // user update
         app.put("/userUpdate", async (req, res) => {
             const email = req.query.email;
             const updateUser = req.body;
@@ -250,6 +251,7 @@ async function run() {
             res.send({ success: true, result })
         })
 
+        // user delete
         app.delete('/user/:id', async (req, res) => {
             const id = req.params.id;
             const query = { _id: ObjectId(id) }
