@@ -112,11 +112,13 @@ async function run() {
             res.send(result);
         })
 
+        // get all orders
         app.get('/allOrders', verifyJWT, verifyAdmin, async (req, res) => {
             const result = await ordersCollection.find().toArray();
             res.send(result);
         })
 
+        // get single orders
         app.get('/orders', verifyJWT, async (req, res) => {
             const email = req.query.email;
             const decodedEmail = req.decoded.email;
@@ -129,6 +131,7 @@ async function run() {
             }
         })
 
+        // get single orders
         app.get('/orders/:id', verifyJWT, async (req, res) => {
             const id = req.params.id;
             const query = { _id: ObjectId(id) }
@@ -136,12 +139,14 @@ async function run() {
             res.send(booking);
         })
 
+        // orders place
         app.post("/orders", async (req, res) => {
             const orders = req.body;
             const result = await ordersCollection.insertOne(orders);
             res.send({ success: true, result });
         })
 
+        // orders transation id set
         app.put('/orders/:id', async (req, res) => {
             const id = req.params.id;
             const orderInformation = req.body;
