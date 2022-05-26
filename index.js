@@ -77,11 +77,13 @@ async function run() {
             res.send({ admin: isAdmin })
         })
 
+        // get all parts
         app.get("/parts", async (req, res) => {
             const result = await partsCollection.find().toArray();
             res.send(result);
         })
 
+        // get single parts
         app.get("/parts/:id", verifyJWT, async (req, res) => {
             const id = req.params.id;
             const query = { _id: ObjectId(id) }
@@ -89,6 +91,7 @@ async function run() {
             res.send(result);
         })
 
+        // add parts
         app.post("/parts", async (req, res) => {
             const newParts = req.body;
             const name = newParts.name;
@@ -101,6 +104,7 @@ async function run() {
             res.send({ success: true, result });
         })
 
+        // delete parts
         app.delete("/parts/:id", async (req, res) => {
             const id = req.params.id;
             const query = { _id: ObjectId(id) }
