@@ -178,6 +178,7 @@ async function run() {
             res.send(updatePartsQuantity);
         })
 
+        // orders delete
         app.delete('/orders/:id', async (req, res) => {
             const id = req.params.id;
             const query = { _id: ObjectId(id) }
@@ -185,22 +186,26 @@ async function run() {
             res.send(deleteOrder);
         })
 
+        // get all reveiws
         app.get("/reveiws", async (req, res) => {
             const result = await reveiwCollection.find().toArray();
             res.send(result);
         })
 
+        // add reveiws
         app.post("/reveiws", async (req, res) => {
             const newReveiws = req.body;
             const result = await reveiwCollection.insertOne(newReveiws);
             res.send({ success: true, result });
         })
 
+        // get all user
         app.get("/allUser", verifyJWT, async (req, res) => {
             const result = await userCollection.find().toArray();
             res.send(result);
         })
 
+        // get single user
         app.get("/user", verifyJWT, async (req, res) => {
             const email = req.query.email;
             const query = { email: email }
