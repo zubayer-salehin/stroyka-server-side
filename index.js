@@ -46,6 +46,7 @@ async function run() {
         const reveiwCollection = client.db("masterTech").collection("reveiws");
         const userCollection = client.db("masterTech").collection("user");
 
+        // Payment system
         app.post("/create-payment-intent", async (req, res) => {
             const order = req.body;
             const price = order.price;
@@ -58,6 +59,7 @@ async function run() {
             res.send({ clientSecret: paymentIntent.client_secret });
         })
 
+        // verify admin
         const verifyAdmin = async (req, res, next) => {
             const requester = req.decoded.email;
             const requesterAccount = await userCollection.findOne({ email: requester })
