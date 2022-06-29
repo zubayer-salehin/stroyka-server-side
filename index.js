@@ -12,7 +12,7 @@ app.use(express.json())
 app.use(cors())
 
 app.get('/', (req, res) => {
-    res.send('Royal flus Plumbing')
+    res.send('Welcome to Royal flus Plumbing Server Side')
 })
 
 
@@ -260,7 +260,7 @@ async function run() {
         })
 
     } finally {
-
+        // await client.close();
     }
 }
 
