@@ -19,5 +19,8 @@
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^4.6.0",
     "stripe": "^9.2.0"
+  },
+  "engines": {
+    "node": ">=14 <15"
   }
 }
