@@ -23,7 +23,7 @@ admin.initializeApp({
 
 
 app.get('/', (req, res) => {
-    res.send('Welcome to Royal flus Plumbing Server Side')
+    res.send('Welcome to Stroyka Server Side')
 })
 
 
