@@ -22,6 +22,7 @@ admin.initializeApp({
 /*  Firebase Admin Sdk End  */
 
 
+/* Home Start*/
 app.get('/', (req, res) => {
     res.send('Welcome to Stroyka Server Side')
 })
