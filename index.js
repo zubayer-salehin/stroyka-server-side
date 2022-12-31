@@ -88,7 +88,7 @@ async function run() {
             res.send({ admin: isAdmin })
         })
 
-        // get all parts
+        /*  Parts Route Start  */
         app.get("/parts", async (req, res) => {
             const result = await partsCollection.find().toArray();
             res.send(result);
@@ -122,6 +122,7 @@ async function run() {
             const result = await partsCollection.deleteOne(query);
             res.send(result);
         })
+        /*  Parts Route End  */
 
         // get all orders
         app.get('/allOrders', verifyJWT, verifyAdmin, async (req, res) => {
